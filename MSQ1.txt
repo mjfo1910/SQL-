@@ -1,0 +1,46 @@
+create database db_rh
+
+use db_rh;
+
+create table tb_funcionario(
+id bigint auto_increment,
+nome varchar(20) not null,
+idade int not null,
+cargo_id bigint not null,
+primary key(id),
+foreign key(cargo_id) references tb_cargo (id)
+)
+
+select * from tb_funcionario
+
+create table tb_cargo(
+id bigint auto_increment,
+salario float not null,
+area varchar(20) not null,
+primary key (id)
+)
+
+insert into tb_cargo ( salario, area) values ( 3000, "administracao");
+insert into tb_cargo ( salario, area) values ( 1500, "auxiliar de limpeza");
+insert into tb_cargo ( salario, area) values ( 1800, "contabilidade");
+insert into tb_cargo ( salario, area) values ( 4500, "design");
+
+insert into tb_funcionario (nome, idade, cargo_id) values (" obadias", 22, 1);
+insert into tb_funcionario (nome, idade, cargo_id) values (" jeremias", 24, 3);
+insert into tb_funcionario (nome, idade, cargo_id) values (" miqueias", 28, 3);
+insert into tb_funcionario (nome, idade, cargo_id) values (" oseias", 25, 4);
+insert into tb_funcionario (nome, idade, cargo_id) values (" joel", 34, 5 );
+insert into tb_funcionario (nome, idade, cargo_id) values (" habacuque", 46, 4);
+insert into tb_funcionario (nome, idade, cargo_id) values (" malaquias", 38, 3);
+insert into tb_funcionario (nome, idade, cargo_id) values (" josy", 26, 4);
+insert into tb_funcionario (nome, idade, cargo_id) values (" rute", 46, 1);
+insert into tb_funcionario (nome, idade, cargo_id) values (" tatiana", 46, 1);
+insert into tb_funcionario (nome, idade, cargo_id) values (" marcela", 46, 1);
+insert into tb_funcionario (nome, idade, cargo_id) values (" kathy",46, 3);
+insert into tb_funcionario (nome, idade, cargo_id) values (" mary", 46, 1);
+insert into tb_funcionario (nome, idade, cargo_id) values (" clarita", 46, 5);
+insert into tb_funcionario (nome, idade, cargo_id) values (" rita", 46, 4);
+
+select * from tb_cargo where salario > 1000 and salario < 2000
+
+select * from tb_funcionario where nome like "%c%"
